@@ -396,3 +396,65 @@
     .finder-body{ grid-template-columns: 1fr; }
     .finder-sidebar{ display: none; }
 }
+
+/* ——— Ölçekleme & responsive sidebar değişkenleri ——— */
+:root{
+    --bar-scale: 1.20;          /* JSX ile override ediliyor */
+    --sidebar-min: 180px;
+    --sidebar-max: 300px;
+    --sidebar-vw: 16vw;
+}
+
+/* Tam ekran kabuk zaten var; sadece grid clamp’ı değişken yapalım */
+.finder-body{
+    grid-template-columns: clamp(var(--sidebar-min), var(--sidebar-vw), var(--sidebar-max)) 1fr;
+}
+
+/* Titlebar / Footer ölçekleri */
+.finder-titlebar{
+    padding: calc(10px * var(--bar-scale)) calc(12px * var(--bar-scale));
+    font-size: calc(14px * var(--bar-scale));
+}
+.title-logo{
+    width: calc(22px * var(--bar-scale));
+    height: calc(22px * var(--bar-scale));
+}
+.search input{
+    width: calc(200px * var(--bar-scale));
+    padding: calc(6px * var(--bar-scale)) calc(10px * var(--bar-scale));
+    font-size: calc(14px * var(--bar-scale));
+}
+.finder-statusbar{
+    padding: calc(10px * var(--bar-scale)) calc(12px * var(--bar-scale));
+    font-size: calc(12px * var(--bar-scale));
+}
+
+/* Sidebar: dar ama okunaklı — buton & font biraz daha büyük */
+.finder-sidebar{ padding: 18px 14px; }
+.sb-title{ font-size: 13px; margin: 10px 8px 8px; letter-spacing: .09em; }
+.sb-item{
+    padding: 12px 12px;
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sb-item .sb-dot{ width: 9px; height: 9px; }
+
+/* İçerik değişiminde hafif fade (opsiyonel) */
+:root{ --content-fade-ms: 160ms; }
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.content-fade-in{
+    animation: contentFadeIn var(--content-fade-ms) ease-out;
+}
+
+/* Küçük ekran: sidebar kapanır */
+@media (max-width: 820px){
+    .finder-body{ grid-template-columns: 1fr; }
+    .finder-sidebar{ display: none; }
+}
