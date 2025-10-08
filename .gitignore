@@ -27,3 +27,5 @@ yarn-cache/
 # *.hdr
 # *.exr
 # *.zip
+
+.gitattributes
