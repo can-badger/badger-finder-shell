@@ -1,5 +1,5 @@
 // Logon src/assets içindeyse import et (yolunu durumuna göre düzelt)
-import logoUrl from '../assets/white_text.svg';
+import logoUrl from '../../public/assets/white_text.svg';
 
 export default function SiteFooter(){
   return (

@@ -3,7 +3,7 @@ import AboutSection from './components/AboutSection.jsx'
 import WorksSection from './components/WorksSection.jsx'
 import ContactSection from './components/ContactSection.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
-import logoUrl from './assets/logo.svg'
+import logoUrl from '../public/assets/logo.svg'
 
 
 export default function App(){
@@ -56,5 +56,5 @@ export default function App(){
       </footer>
     </>
   )
-  
+
 }
